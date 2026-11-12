@@ -1,6 +1,6 @@
 ---
 import Layout from '@/layouts/main.astro';
-import { Button } from '@/components/ui/button';
+import { StyledButton } from '@/components/StyledButton';
 import { LogoInverted } from '@/components/Logo';
 import { Image } from 'astro:assets';
 import heroImage from '@/assets/hero.webp';
@@ -75,15 +75,19 @@ const contact = [
 				ambitious ideas into enduring structures.
 			</p>
 			<div class="flex flex-wrap items-center justify-center gap-3">
-				<Button
+				<StyledButton
+					href="#projects"
 					variant="outline"
 					className="border-white/60 bg-transparent text-white hover:bg-white/10 hover:text-white"
 				>
 					Explore our projects
-				</Button>
-				<Button className="bg-white text-neutral-900 hover:bg-white/90">
+				</StyledButton>
+				<StyledButton
+					href="#contact"
+					className="bg-white text-neutral-900 hover:bg-white/90"
+				>
 					Get in touch
-				</Button>
+				</StyledButton>
 			</div>
 		</div>
 	</section>
@@ -156,13 +160,13 @@ const contact = [
 				</p>
 			</div>
 			<div class="flex justify-end">
-				<Button variant="outline">Discover our story</Button>
+				<StyledButton href="#" variant="outline">Discover our story</StyledButton>
 			</div>
 		</div>
 	</section>
 
 	<!-- Featured projects -->
-	<section class="border-t border-border">
+	<section id="projects" class="scroll-mt-20 border-t border-border">
 		<div class="mx-auto w-full max-w-[1200px] px-6 py-20">
 			<h2 class="font-heading text-3xl leading-none">Featured projects</h2>
 
@@ -180,7 +184,7 @@ const contact = [
 	</section>
 
 	<!-- Contact call to action -->
-	<section class="border-t border-border">
+	<section id="contact" class="scroll-mt-20 border-t border-border">
 		<div class="mx-auto flex w-full max-w-[1200px] flex-col items-center gap-8 px-6 py-24 text-center">
 			<h2 class="font-heading text-3xl leading-none">Let's get in touch</h2>
 			<p class="font-heading text-4xl leading-none break-all sm:text-6xl">
