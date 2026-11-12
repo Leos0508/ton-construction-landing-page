@@ -7,9 +7,7 @@ import { Image } from 'astro:assets';
 import heroImage from '@/assets/hero.webp';
 import aboutImage1 from '@/assets/about-1.webp';
 import aboutImage2 from '@/assets/about-2.webp';
-import projectImage1 from '@/assets/project-1.webp';
-import projectImage2 from '@/assets/project-2.webp';
-import projectImage3 from '@/assets/project-3.webp';
+import { featuredProjects } from '@/data/projects';
 
 const stats = [
 	{ value: '18+', label: 'Years of Experience' },
@@ -18,29 +16,6 @@ const stats = [
 	{ value: '12', label: 'Provinces Served' },
 ];
 
-const projects = [
-	{
-		name: 'Project 1',
-		image: projectImage1,
-		alt: 'Glass office towers viewed from the street',
-		description:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-	},
-	{
-		name: 'Project 2',
-		image: projectImage2,
-		alt: 'Timber clad building with planted terraces',
-		description:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-	},
-	{
-		name: 'Project 3',
-		image: projectImage3,
-		alt: 'Curved facade of a commercial building',
-		description:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-	},
-];
 
 const contact = [
 	{
@@ -201,7 +176,7 @@ const contact = [
 			<h2 class="font-heading text-4xl leading-none">Featured projects</h2>
 
 			<div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-				{projects.map((project) => (
+				{featuredProjects.map((project) => (
 					<article class="flex flex-col gap-3">
 						<div class="group relative overflow-hidden">
 							<Image
