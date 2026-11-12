@@ -1,4 +1,5 @@
 import { Logo } from "./Logo";
+import { StyledButton } from "./StyledButton";
 
 const navLists = [
   { name: "About", href: "/about" },
@@ -16,29 +17,12 @@ export default function NavBar() {
         <Logo />
         <div>
           {navLists.map((navList) => (
-            <NavBarBtn key={navList.name} href={navList.href}>
+            <StyledButton key={navList.name} href={navList.href}>
               {navList.name}
-            </NavBarBtn>
+            </StyledButton>
           ))}
         </div>
       </div>
     </nav>
-  );
-}
-
-function NavBarBtn({
-  children,
-  href,
-}: {
-  children: React.ReactNode;
-  href: string;
-}) {
-  return (
-    <a
-      href={href}
-      className="inline-flex gap-8 px-3 py-1 uppercase text-lg hover:cursor-pointer"
-    >
-      {children}
-    </a>
   );
 }
