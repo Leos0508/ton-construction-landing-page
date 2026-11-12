@@ -2,6 +2,8 @@
 import Layout from '@/layouts/main.astro';
 import { Button } from '@/components/ui/button';
 import { LogoInverted } from '@/components/Logo';
+import { Image } from 'astro:assets';
+import heroImage from '@/assets/hero.webp';
 
 const stats = [
 	{ value: '18+', label: 'Years of Experience' },
@@ -37,21 +39,45 @@ const contact = [
 >
 	<!-- Hero -->
 	<section
-		class="relative flex min-h-[80vh] flex-col items-center justify-between gap-20 bg-muted px-6 pt-28 pb-16 text-center"
+		class="relative flex min-h-[80vh] flex-col items-center justify-between gap-20 overflow-hidden px-6 pt-28 pb-16 text-center"
 	>
-		<h1 class="font-heading max-w-3xl text-4xl leading-none tracking-tight sm:text-6xl">
+		<Image
+			src={heroImage}
+			alt=""
+			widths={[640, 960, 1280, 1600, 2400]}
+			sizes="100vw"
+			loading="eager"
+			fetchpriority="high"
+			class="absolute inset-0 h-full w-full object-cover"
+		/>
+		<div
+			class="absolute inset-0 bg-neutral-950/45"
+			aria-hidden="true"
+		>
+		</div>
+
+		<h1
+			class="relative z-10 font-heading max-w-3xl text-4xl leading-none tracking-tight text-white sm:text-6xl"
+		>
 			We build what last
 		</h1>
 
-		<div class="flex max-w-xl flex-col items-center gap-6">
-			<p class="text-sm text-muted-foreground">
+		<div class="relative z-10 flex max-w-xl flex-col items-center gap-6">
+			<p class="text-sm text-white/80">
 				From concept to completion, we deliver reliable construction solutions
 				through quality, innovation, and a commitment to excellence. We turn
 				ambitious ideas into enduring structures.
 			</p>
 			<div class="flex flex-wrap items-center justify-center gap-3">
-				<Button variant="outline">Explore our projects</Button>
-				<Button>Get in touch</Button>
+				<Button
+					variant="outline"
+					className="border-white/60 bg-transparent text-white hover:bg-white/10 hover:text-white"
+				>
+					Explore our projects
+				</Button>
+				<Button className="bg-white text-neutral-900 hover:bg-white/90">
+					Get in touch
+				</Button>
 			</div>
 		</div>
 	</section>
