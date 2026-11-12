@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 387 205" fill="currentColor">
+  <title>TON</title>
+  <!-- T -->
+  <path d="M0 133 L114 77 L114 117 L0 173 Z" />
+  <rect x="44" y="125" width="44" height="80" />
+  <!-- O -->
+  <path
+    fill-rule="evenodd"
+    d="M120 205 L120 80 L222 80 L222 205 Z M148 177 L194 177 L194 108 L148 108 Z"
+  />
+  <!-- N -->
+  <path d="M247 0 L279 0 L387 205 L355 205 Z" />
+  <rect x="247" y="0" width="32" height="205" />
+  <rect x="355" y="0" width="32" height="205" />
+</svg>
