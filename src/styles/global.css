@@ -132,3 +132,11 @@
     @apply font-sans;
     }
 }
+
+/* In-page anchor links glide to their target. Skipped when the visitor
+   asks for reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
