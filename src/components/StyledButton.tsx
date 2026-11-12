@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "cn";
 
 const styledButtonVariants = cva(
-  "inline-flex h-12 items-center gap-2 rounded-none px-6 py-4 uppercase hover:cursor-pointer transition-colors focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none",
+  "inline-flex items-center gap-2 rounded-none px-6 py-4 uppercase hover:cursor-pointer transition-colors focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none",
   {
     variants: {
       variant: {
