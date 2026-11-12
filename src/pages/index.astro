@@ -39,7 +39,8 @@ const contact = [
 >
 	<!-- Hero -->
 	<section
-		class="relative mt-20 flex min-h-[calc(100vh-5rem)] flex-col items-center justify-between gap-20 overflow-hidden px-6 pt-16 pb-16 text-center"
+		data-hero
+		class="group relative mt-20 flex min-h-[calc(100vh-5rem)] flex-col items-center overflow-hidden px-6 pt-16 pb-16 text-center"
 	>
 		<Image
 			src={heroImage}
@@ -51,7 +52,7 @@ const contact = [
 			class="absolute inset-0 h-full w-full object-cover"
 		/>
 		<div
-			class="absolute inset-0 bg-neutral-950/45"
+			class="absolute inset-0 bg-neutral-950/45 transition-colors duration-700 ease-out group-hover:bg-neutral-950/25"
 			aria-hidden="true"
 		>
 		</div>
@@ -62,7 +63,10 @@ const contact = [
 			We build what last
 		</h1>
 
-		<div class="relative z-10 flex max-w-xl flex-col items-center gap-6">
+		<div class="hero-line relative z-10 my-8 w-px flex-1 bg-white/40" aria-hidden="true">
+		</div>
+
+		<div class="hero-copy relative z-10 flex max-w-xl flex-col items-center gap-6">
 			<p class="text-sm text-white/80">
 				From concept to completion, we deliver reliable construction solutions
 				through quality, innovation, and a commitment to excellence. We turn
@@ -223,3 +227,56 @@ const contact = [
 		</div>
 	</footer>
 </Layout>
+
+<style>
+	.hero-line {
+		transform-origin: top;
+		transition: transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+	}
+
+	.hero-copy {
+		transition:
+			opacity 700ms ease-out,
+			filter 700ms ease-out,
+			transform 700ms ease-out;
+		transition-delay: 350ms;
+	}
+
+	:global(.js) .hero-line {
+		transform: scaleY(0);
+	}
+
+	:global(.js) .hero-copy {
+		opacity: 0;
+		filter: blur(12px);
+		transform: translateY(12px);
+	}
+
+	.hero-in .hero-line {
+		transform: scaleY(1);
+	}
+
+	.hero-in .hero-copy {
+		opacity: 1;
+		filter: blur(0);
+		transform: none;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		:global(.js) .hero-line,
+		:global(.js) .hero-copy {
+			opacity: 1;
+			filter: none;
+			transform: none;
+		}
+
+		.hero-line,
+		.hero-copy {
+			transition: none;
+		}
+	}
+</style>
+
+<script>
+	import '@/scripts/hero';
+</script>
