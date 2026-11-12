@@ -66,9 +66,31 @@ Photography from [Unsplash](https://unsplash.com). Swap in real project photos b
 
 Static output, so any host works. Build command `pnpm build`, output directory `dist`.
 
+### Cloudflare Pages
+
+Two ways in, both free and both fine for commercial use.
+
+**From the dashboard**, which is the one I recommend because every branch gets a preview URL:
+
+1. Push the repo to GitHub
+2. Cloudflare dashboard, Workers & Pages, Create, Pages, Connect to Git
+3. Pick the repo. The Astro preset fills in `pnpm build` and `dist`
+4. Set `NODE_VERSION` to `22` in the environment variables
+5. Deploy, then add the custom domain under Custom domains
+
+**From the CLI**, for a one-off deploy without the Git integration:
+
+```sh
+pnpm cf:login   # opens a browser once
+pnpm deploy     # builds and uploads dist/
+```
+
+`wrangler.toml` already names the project and points at `dist`. `public/_headers` sets cache and security headers, and `_headers` is copied into `dist` on build.
+
+### Other hosts
+
 | Host | Notes |
 | --- | --- |
-| Cloudflare Pages | Unlimited bandwidth on free, commercial use allowed |
 | Netlify | Free tier, includes form handling if a contact form is added |
 | Vercel | Hobby tier is non-commercial, use Pro for a company site |
 | GitHub Pages | Free, no preview deploys |
