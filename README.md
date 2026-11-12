@@ -62,6 +62,21 @@ pnpm sharp -i ~/Downloads/photo.png -o src/assets/photo.webp -f webp -q 82 resiz
 
 Photography from [Unsplash](https://unsplash.com). Swap in real project photos before any real use.
 
+## Analytics
+
+Cloudflare Web Analytics is wired in and stays silent until a token exists.
+
+1. Cloudflare dashboard, Web Analytics, Add a site
+2. Copy the beacon token
+3. Set `PUBLIC_CF_ANALYTICS_TOKEN` in the Worker environment variables
+4. Redeploy
+
+Locally, copy `.env.example` to `.env` and fill it in.
+
+Cookieless, so no consent banner, and it reports Core Web Vitals next to page
+views. Roughly a third of visitors run a blocker that drops the beacon, so read
+the numbers as a trend rather than a census.
+
 ## Deploy
 
 Static output, so any host works. Build command `pnpm build`, output directory `dist`.

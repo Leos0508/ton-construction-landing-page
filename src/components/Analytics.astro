@@ -1,0 +1,19 @@
+---
+/**
+ * Cloudflare Web Analytics. Cookieless, so no consent banner, and it reports
+ * Core Web Vitals alongside page views. Renders nothing until the token is set
+ * as a PUBLIC_CF_ANALYTICS_TOKEN environment variable.
+ */
+const token = import.meta.env.PUBLIC_CF_ANALYTICS_TOKEN;
+---
+
+{
+  token && (
+    <script
+      is:inline
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon={JSON.stringify({ token })}
+    />
+  )
+}
