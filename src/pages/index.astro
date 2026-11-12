@@ -21,17 +21,15 @@ const contact = [
 	{
 		title: 'Office Address',
 		lines: ['128 Nguyen Van Linh', 'Boulevard, Tan Phong Ward', 'District 7, Ho Chi Minh City, Vietnam'],
-		map: true,
+		map: 'https://maps.google.com/maps?q=128%20Nguyen%20Van%20Linh%20Boulevard%2C%20Tan%20Phong%20Ward%2C%20District%207%2C%20Ho%20Chi%20Minh%20City%2C%20Vietnam&z=15&output=embed',
 	},
 	{
 		title: 'Phone',
 		lines: ['+84 28 7300 8520'],
-		map: false,
 	},
 	{
 		title: 'Social Medias',
 		lines: ['Facebook', 'Instagram', 'LinkedIn'],
-		map: false,
 	},
 ];
 ---
@@ -224,7 +222,13 @@ const contact = [
 						{block.lines.map((line) => <p>{line}</p>)}
 					</div>
 					{block.map && (
-						<div class="mt-2 aspect-[4/3] w-full bg-muted" aria-hidden="true" />
+						<iframe
+							src={block.map}
+							title={`Map of ${block.title}`}
+							loading="lazy"
+							referrerpolicy="no-referrer-when-downgrade"
+							class="mt-2 aspect-[4/3] w-full border-0"
+						/>
 					)}
 				</div>
 			))}
