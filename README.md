@@ -1,13 +1,37 @@
-# Astro with Tailwind
+# landing-page
+
+Placeholder static landing page. Astro with Tailwind CSS v4 and shadcn/ui.
+
+## Stack
+
+- Astro 7, static output
+- Tailwind CSS v4 through `@tailwindcss/vite`
+- shadcn/ui (`radix-nova` preset), React islands only where needed
+- Geist Variable for type
+
+## Commands
 
 ```sh
-pnpm create astro@latest -- --template with-tailwindcss
+pnpm install
+pnpm dev      # localhost:4321
+pnpm build    # static output in dist/
+pnpm preview
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/with-tailwindcss)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/with-tailwindcss)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/with-tailwindcss/devcontainer.json)
+## Layout
 
-Astro comes with [Tailwind](https://tailwindcss.com) support out of the box. This example showcases how to style your Astro project with Tailwind.
+```
+src/
+  layouts/main.astro     # html shell, pulls in global.css
+  pages/index.astro      # the placeholder hero
+  components/ui/         # shadcn components
+  lib/utils.ts           # cn helper
+  styles/global.css      # Tailwind entry + shadcn theme tokens
+components.json          # shadcn config, points at src/styles/global.css
+```
 
-For complete setup instructions, please see our [Tailwind Styling Guide](https://docs.astro.build/en/guides/styling/#tailwind).
+## Adding components
+
+```sh
+pnpm dlx shadcn@latest add card
+```
