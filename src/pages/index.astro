@@ -1,6 +1,7 @@
 ---
 import Layout from '@/layouts/main.astro';
 import { StyledButton } from '@/components/StyledButton';
+import { IconArrowUpRight } from '@tabler/icons-react';
 import { LogoInverted } from '@/components/Logo';
 import { Image } from 'astro:assets';
 import heroImage from '@/assets/hero.webp';
@@ -87,6 +88,7 @@ const contact = [
 					className="bg-white text-neutral-900 hover:bg-white/90"
 				>
 					Get in touch
+					<IconArrowUpRight size={20} stroke={1.5} aria-hidden="true" />
 				</StyledButton>
 			</div>
 		</div>
@@ -160,7 +162,10 @@ const contact = [
 				</p>
 			</div>
 			<div class="flex justify-end">
-				<StyledButton href="#" variant="outline">Discover our story</StyledButton>
+				<StyledButton href="#" variant="outline">
+					Discover our story
+					<IconArrowUpRight size={20} stroke={1.5} aria-hidden="true" />
+				</StyledButton>
 			</div>
 		</div>
 	</section>
@@ -184,7 +189,7 @@ const contact = [
 	</section>
 
 	<!-- Contact call to action -->
-	<section id="contact" class="scroll-mt-20 border-t border-border">
+	<section id="contact" class="scroll-mt-20">
 		<div class="mx-auto flex w-full max-w-[1200px] flex-col items-center gap-8 px-6 py-24 text-center">
 			<h2 class="font-heading text-3xl leading-none">Let's get in touch</h2>
 			<p class="font-heading text-4xl leading-none break-all sm:text-6xl">
