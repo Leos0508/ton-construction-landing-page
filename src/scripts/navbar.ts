@@ -3,7 +3,7 @@
  *
  * The bar is fixed at the top and always visible at scrollY 0. Scrolling down
  * pulls it up out of view. Moving the pointer into the top strip brings it
- * back, which is the only way to reach it once you are scrolled down.
+ * back, and moving back out of that strip retracts it again.
  */
 const bar = document.querySelector<HTMLElement>('[data-navbar]');
 
@@ -40,7 +40,11 @@ if (bar) {
 	window.addEventListener(
 		'pointermove',
 		(event) => {
-			if (event.clientY <= TOP_ZONE) setHidden(false);
+			if (event.clientY >= 0 && event.clientY <= TOP_ZONE) {
+				setHidden(false);
+			} else if (window.scrollY > AT_TOP) {
+				setHidden(true);
+			}
 		},
 		{ passive: true },
 	);
