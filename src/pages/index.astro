@@ -111,18 +111,18 @@ const contact = [
     id="about"
     class="mx-auto grid w-full max-w-[1200px] scroll-mt-20 items-start gap-10 px-6 py-20 lg:grid-cols-2 lg:gap-16"
   >
-    <div class="flex flex-col gap-6" data-reveal>
-      <h2 class="font-heading text-4xl leading-none">About us</h2>
-      <p class="text-2xl font-medium">
+    <div class="flex flex-col gap-6">
+      <h2 class="font-heading text-4xl leading-none" data-reveal>About us</h2>
+      <p class="text-2xl font-medium" data-reveal data-reveal-delay="100">
         Built on <span class="font-display italic">Experience</span>. Driven by{" "}
         <span class="font-display italic">Excellence</span>.
       </p>
-      <p class="text-sm font-light">
+      <p class="text-sm font-light" data-reveal data-reveal-delay="200">
         At TON, we believe every great structure begins with a strong
         foundation, not just in materials, but in trust, expertise, and
         collaboration.
       </p>
-      <p class="text-sm font-light">
+      <p class="text-sm font-light" data-reveal data-reveal-delay="300">
         We are a construction and development company specializing in
         residential, commercial, and industrial projects.
       </p>
@@ -147,20 +147,20 @@ const contact = [
       class="aspect-[16/10] w-full object-cover"
     />
 
-    <div class="flex flex-col justify-between gap-8" data-reveal>
+    <div class="flex flex-col justify-between gap-8">
       <div class="flex flex-col gap-6">
-        <p class="text-sm font-light">
+        <p class="text-sm font-light" data-reveal>
           Our team combines technical expertise with practical experience to
           deliver projects that meet the highest standards of quality, safety,
           and performance.
         </p>
-        <p class="text-sm font-light">
+        <p class="text-sm font-light" data-reveal data-reveal-delay="100">
           From the initial planning stages to the final handover, we approach
           every project with precision, transparency, and a commitment to
           getting things right.
         </p>
       </div>
-      <div class="flex justify-end">
+      <div class="flex justify-end" data-reveal data-reveal-delay="200">
         <StyledButton href="#" variant="outline">
           Discover our story
           <IconArrowUpRight size={20} stroke={1.5} aria-hidden="true" />

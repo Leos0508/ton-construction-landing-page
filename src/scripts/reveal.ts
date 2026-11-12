@@ -18,5 +18,10 @@ if (targets.length > 0) {
 		{ threshold: 0.2, rootMargin: '0px 0px -10% 0px' },
 	);
 
-	targets.forEach((target) => observer.observe(target));
+	targets.forEach((target) => {
+		const delay = Number(target.dataset.revealDelay ?? 0);
+		if (delay > 0) target.style.transitionDelay = `${delay}ms`;
+
+		observer.observe(target);
+	});
 }
