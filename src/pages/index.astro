@@ -11,20 +11,31 @@ import { Button } from '@/components/ui/button';
 		class="flex min-h-screen flex-col items-center justify-center gap-6 px-6 text-center"
 	>
 		<p
+			data-reveal
 			class="font-display text-sm tracking-[0.25em] text-muted-foreground uppercase"
 		>
 			Placeholder
 		</p>
 		<h1
+			data-reveal
+			data-reveal-delay="0.08"
 			class="font-heading max-w-2xl text-5xl leading-[1.05] font-normal tracking-tight text-balance sm:text-7xl"
 		>
 			Your headline goes here
 		</h1>
-		<p class="max-w-md text-balance text-muted-foreground">
+		<p
+			data-reveal
+			data-reveal-delay="0.16"
+			class="max-w-md text-balance text-muted-foreground"
+		>
 			Astro, Tailwind CSS, and shadcn/ui are wired up. Replace this copy with
 			the real pitch.
 		</p>
-		<div class="flex flex-wrap items-center justify-center gap-3">
+		<div
+			data-reveal
+			data-reveal-delay="0.24"
+			class="flex flex-wrap items-center justify-center gap-3"
+		>
 			<Button size="lg">Get started</Button>
 			<Button variant="outline" size="lg">Learn more</Button>
 		</div>
