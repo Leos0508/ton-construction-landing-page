@@ -1,7 +1,14 @@
 ---
 import Layout from "@/layouts/main.astro";
 import { StyledButton } from "@/components/StyledButton";
-import { IconArrowUpRight } from "@tabler/icons-react";
+import {
+  IconArrowUpRight,
+  IconBrandFacebook,
+  IconBrandInstagram,
+  IconBrandLinkedin,
+  IconPhone,
+  type Icon,
+} from "@tabler/icons-react";
 import { LogoInverted } from "@/components/Logo";
 import { Image } from "astro:assets";
 import heroImage from "@/assets/hero.webp";
@@ -16,7 +23,14 @@ const stats = [
   { value: "12", label: "Provinces Served" },
 ];
 
-const contact = [
+type ContactBlock = {
+  title: string;
+  lines?: string[];
+  links?: { label: string; href: string; icon: Icon }[];
+  map?: string;
+};
+
+const contact: ContactBlock[] = [
   {
     title: "Office Address",
     lines: [
@@ -28,11 +42,29 @@ const contact = [
   },
   {
     title: "Phone",
-    lines: ["+84 28 7300 8520"],
+    links: [
+      { label: "+84 28 7300 8520", href: "tel:+842873008520", icon: IconPhone },
+    ],
   },
   {
     title: "Social Medias",
-    lines: ["Facebook", "Instagram", "LinkedIn"],
+    links: [
+      {
+        label: "Facebook",
+        href: "https://facebook.com",
+        icon: IconBrandFacebook,
+      },
+      {
+        label: "Instagram",
+        href: "https://instagram.com",
+        icon: IconBrandInstagram,
+      },
+      {
+        label: "LinkedIn",
+        href: "https://linkedin.com",
+        icon: IconBrandLinkedin,
+      },
+    ],
   },
 ];
 ---
@@ -214,11 +246,29 @@ const contact = [
       {contact.map((block) => (
         <div class="flex flex-col gap-4">
           <h3 class="font-heading text-xl leading-none">{block.title}</h3>
-          <div class="flex flex-col gap-1 text-sm text-muted-foreground">
-            {block.lines.map((line) => (
-              <p>{line}</p>
-            ))}
-          </div>
+          {block.lines && (
+            <div class="flex flex-col gap-1 text-sm text-muted-foreground">
+              {block.lines.map((line) => (
+                <p>{line}</p>
+              ))}
+            </div>
+          )}
+          {block.links && (
+            <div class="flex flex-col gap-1 text-sm text-muted-foreground">
+              {block.links.map((link) => {
+                const Icon = link.icon;
+                return (
+                  <a
+                    href={link.href}
+                    class="inline-flex items-center gap-2 transition-colors hover:text-primary hover:underline"
+                  >
+                    <Icon size={16} stroke={1.5} aria-hidden="true" />
+                    {link.label}
+                  </a>
+                );
+              })}
+            </div>
+          )}
           {block.map && (
             <iframe
               src={block.map}

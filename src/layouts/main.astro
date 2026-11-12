@@ -1,6 +1,7 @@
 ---
 import '@/styles/global.css';
 import NavBar from '@/components/NavBar';
+import ScrollTop from '@/components/ScrollTop.astro';
 
 interface Props {
   title: string;
@@ -22,10 +23,12 @@ const { title, description = '' } = Astro.props;
 		<script>
 			import '@/scripts/navbar';
 			import '@/scripts/reveal';
+			import '@/scripts/scroll-top';
 		</script>
 	</head>
 	<body>
 		<NavBar />
 		<slot />
+		<ScrollTop />
 	</body>
 </html>
