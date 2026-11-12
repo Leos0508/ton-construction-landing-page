@@ -1,3 +1,7 @@
 name = "ton-construction-landing-page"
-pages_build_output_dir = "dist"
 compatibility_date = "2026-11-12"
+
+# Static assets are served straight from the build output. Workers Builds runs
+# `wrangler deploy`, which reads this block.
+[assets]
+directory = "./dist"

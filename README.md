@@ -66,26 +66,38 @@ Photography from [Unsplash](https://unsplash.com). Swap in real project photos b
 
 Static output, so any host works. Build command `pnpm build`, output directory `dist`.
 
-### Cloudflare Pages
+### Cloudflare
 
-Two ways in, both free and both fine for commercial use.
+The repo is configured for Workers static assets, which is what a Git-connected
+Worker build deploys.
 
-**From the dashboard**, which is the one I recommend because every branch gets a preview URL:
+Settings in the dashboard:
 
-1. Push the repo to GitHub
-2. Cloudflare dashboard, Workers & Pages, Create, Pages, Connect to Git
-3. Pick the repo. The Astro preset fills in `pnpm build` and `dist`
-4. Set `NODE_VERSION` to `22` in the environment variables
-5. Deploy, then add the custom domain under Custom domains
+| Setting | Value |
+| --- | --- |
+| Root directory | leave empty |
+| Build command | `pnpm build` |
+| Deploy command | `npx wrangler deploy` |
+| Environment variable | `NODE_VERSION=22` |
 
-**From the CLI**, for a one-off deploy without the Git integration:
+Root directory is the folder the build runs in, not where the output goes.
+Pointing it at `dist` fails with `Failed: root directory not found`, because
+`dist` does not exist until after the build has run.
+
+`wrangler.toml` points the assets block at `./dist`, and `public/_headers`
+carries the cache and security headers, which `wrangler` copies along with the
+build output.
+
+For a manual deploy from your machine:
 
 ```sh
 pnpm cf:login   # opens a browser once
-pnpm deploy     # builds and uploads dist/
+pnpm deploy     # builds, then uploads dist/
 ```
 
-`wrangler.toml` already names the project and points at `dist`. `public/_headers` sets cache and security headers, and `_headers` is copied into `dist` on build.
+If you would rather use Pages, create a Pages project instead of a Worker, set
+the build output directory to `dist`, and swap the `[assets]` block in
+`wrangler.toml` for `pages_build_output_dir = "dist"`.
 
 ### Other hosts
 
