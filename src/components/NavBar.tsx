@@ -17,7 +17,11 @@ export default function NavBar() {
         <Logo />
         <div>
           {navLists.map((navList) => (
-            <StyledButton key={navList.name} href={navList.href}>
+            <StyledButton
+              key={navList.name}
+              href={navList.href}
+              className="transition-opacity hover:opacity-60"
+            >
               {navList.name}
             </StyledButton>
           ))}
