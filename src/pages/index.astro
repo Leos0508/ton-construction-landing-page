@@ -4,6 +4,8 @@ import { Button } from '@/components/ui/button';
 import { LogoInverted } from '@/components/Logo';
 import { Image } from 'astro:assets';
 import heroImage from '@/assets/hero.webp';
+import aboutImage1 from '@/assets/about-1.webp';
+import aboutImage2 from '@/assets/about-2.webp';
 
 const stats = [
 	{ value: '18+', label: 'Years of Experience' },
@@ -106,7 +108,7 @@ const contact = [
 	>
 		<div class="flex flex-col gap-6">
 			<h2 class="font-heading text-3xl leading-none">About us</h2>
-			<p class="text-lg">Built on Experience. Driven by Excellence.</p>
+			<p class="text-lg font-medium">Built on <span>Experience</span>. Driven by Excellence.</p>
 			<p class="text-sm text-muted-foreground">
 				At TON, we believe every great structure begins with a strong
 				foundation, not just in materials, but in trust, expertise, and
@@ -119,16 +121,26 @@ const contact = [
 			<hr class="mt-4 border-border" />
 		</div>
 
-		<!-- image placeholder -->
-		<div class="aspect-[16/10] w-full bg-muted" aria-hidden="true"></div>
+		<Image
+			src={aboutImage1}
+			alt="Three engineers in high-visibility vests reviewing a set of plans on site"
+			widths={[400, 794]}
+			sizes="(min-width: 1024px) 50vw, 100vw"
+			class="aspect-[16/10] w-full object-cover"
+		/>
 	</section>
 
 	<!-- About, image left / text right -->
 	<section
 		class="mx-auto grid w-full max-w-[1200px] items-stretch gap-10 px-6 pb-20 lg:grid-cols-2 lg:gap-16"
 	>
-		<!-- image placeholder -->
-		<div class="aspect-[16/10] w-full bg-muted" aria-hidden="true"></div>
+		<Image
+			src={aboutImage2}
+			alt="Construction team in hard hats inspecting the concrete frame of a project"
+			widths={[470, 939]}
+			sizes="(min-width: 1024px) 50vw, 100vw"
+			class="aspect-[16/10] w-full object-cover"
+		/>
 
 		<div class="flex flex-col justify-between gap-8">
 			<div class="flex flex-col gap-6">
