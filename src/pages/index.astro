@@ -7,6 +7,9 @@ import { Image } from 'astro:assets';
 import heroImage from '@/assets/hero.webp';
 import aboutImage1 from '@/assets/about-1.webp';
 import aboutImage2 from '@/assets/about-2.webp';
+import projectImage1 from '@/assets/project-1.webp';
+import projectImage2 from '@/assets/project-2.webp';
+import projectImage3 from '@/assets/project-3.webp';
 
 const stats = [
 	{ value: '18+', label: 'Years of Experience' },
@@ -15,7 +18,23 @@ const stats = [
 	{ value: '12', label: 'Provinces Served' },
 ];
 
-const projects = ['Project 1', 'Project 2', 'Project 3'];
+const projects = [
+	{
+		name: 'Project 1',
+		image: projectImage1,
+		alt: 'Glass office towers viewed from the street',
+	},
+	{
+		name: 'Project 2',
+		image: projectImage2,
+		alt: 'Timber clad building with planted terraces',
+	},
+	{
+		name: 'Project 3',
+		image: projectImage3,
+		alt: 'Curved facade of a commercial building',
+	},
+];
 
 const contact = [
 	{
@@ -101,7 +120,7 @@ const contact = [
 		>
 			{stats.map((stat) => (
 				<div class="px-2 sm:px-4">
-					<p class="font-heading text-3xl leading-none">{stat.value}</p>
+					<p class="font-heading text-4xl leading-none">{stat.value}</p>
 					<p class="mt-2 text-xs text-muted-foreground">{stat.label}</p>
 				</div>
 			))}
@@ -113,14 +132,14 @@ const contact = [
 		class="mx-auto grid w-full max-w-[1200px] items-start gap-10 px-6 py-20 lg:grid-cols-2 lg:gap-16"
 	>
 		<div class="flex flex-col gap-6">
-			<h2 class="font-heading text-3xl leading-none">About us</h2>
-			<p class="text-lg font-medium">Built on <span>Experience</span>. Driven by Excellence.</p>
-			<p class="text-sm text-muted-foreground">
+			<h2 class="font-heading text-4xl leading-none">About us</h2>
+			<p class="text-2xl font-medium">Built on <span class="font-display italic">Experience</span>. Driven by <span class="font-display italic">Excellence</span>.</p>
+			<p class="text-sm font-light">
 				At TON, we believe every great structure begins with a strong
 				foundation, not just in materials, but in trust, expertise, and
 				collaboration.
 			</p>
-			<p class="text-sm text-muted-foreground">
+			<p class="text-sm font-light">
 				We are a construction and development company specializing in
 				residential, commercial, and industrial projects.
 			</p>
@@ -173,14 +192,20 @@ const contact = [
 	<!-- Featured projects -->
 	<section id="projects" class="scroll-mt-20 border-t border-border">
 		<div class="mx-auto w-full max-w-[1200px] px-6 py-20">
-			<h2 class="font-heading text-3xl leading-none">Featured projects</h2>
+			<h2 class="font-heading text-4xl leading-none">Featured projects</h2>
 
 			<div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 				{projects.map((project) => (
 					<article class="flex flex-col gap-3">
-						<div class="aspect-[4/5] w-full bg-muted" aria-hidden="true"></div>
+						<Image
+							src={project.image}
+							alt={project.alt}
+							widths={[400, 800]}
+							sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+							class="aspect-[4/5] w-full object-cover"
+						/>
 						<p class="text-xs font-medium tracking-wide uppercase">
-							{project}
+							{project.name}
 						</p>
 					</article>
 				))}
@@ -189,9 +214,9 @@ const contact = [
 	</section>
 
 	<!-- Contact call to action -->
-	<section id="contact" class="scroll-mt-20">
+	<section id="contact" class="scroll-mt-20 border-t border-border">
 		<div class="mx-auto flex w-full max-w-[1200px] flex-col items-center gap-8 px-6 py-24 text-center">
-			<h2 class="font-heading text-3xl leading-none">Let's get in touch</h2>
+			<h2 class="font-heading text-4xl leading-none">Let's get in touch</h2>
 			<p class="font-heading text-4xl leading-none break-all sm:text-6xl">
 				ton_contact@gmail.com
 			</p>
@@ -199,7 +224,7 @@ const contact = [
 	</section>
 
 	<!-- Contact details -->
-	<section class="border-t border-border">
+	<section >
 		<div
 			class="mx-auto grid w-full max-w-[1200px] gap-10 px-6 py-16 md:grid-cols-3"
 		>
