@@ -7,7 +7,7 @@ Placeholder static landing page. Astro with Tailwind CSS v4 and shadcn/ui.
 - Astro 7, static output
 - Tailwind CSS v4 through `@tailwindcss/vite`
 - shadcn/ui (`radix-nova` preset), React islands only where needed
-- Geist Variable for type
+- Type: DM Sans (body), Instrument Serif (headings), Bebas Neue (display labels), all self-hosted via Fontsource
 
 ## Commands
 
