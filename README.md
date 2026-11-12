@@ -1,37 +1,58 @@
 # landing-page
 
-Placeholder static landing page. Astro with Tailwind CSS v4 and shadcn/ui.
+Marketing site for TON Construction Group. Static output, deployed as files.
 
 ## Stack
 
-- Astro 7, static output
+- Astro 7, static output, TypeScript strict
 - Tailwind CSS v4 through `@tailwindcss/vite`
-- shadcn/ui (`radix-nova` preset), React islands only where needed
-- Type: DM Sans (body), Bebas Neue (headings), Instrument Serif (display), all self-hosted via Fontsource
+- shadcn/ui theme, `radix-nova` preset, tokens in `src/styles/global.css`
+- Tabler icons
+- DM Sans (body), Bebas Neue (headings), Instrument Serif (display)
 
 ## Commands
 
 ```sh
 pnpm install
-pnpm dev      # localhost:4321
-pnpm build    # static output in dist/
-pnpm preview
+pnpm dev      # http://localhost:4321
+pnpm build    # writes dist/
+pnpm preview  # serves dist/ locally
 ```
 
 ## Layout
 
 ```
 src/
-  layouts/main.astro     # html shell, pulls in global.css
-  pages/index.astro      # the placeholder hero
-  components/ui/         # shadcn components
-  lib/utils.ts           # cn helper
-  styles/global.css      # Tailwind entry + shadcn theme tokens
-components.json          # shadcn config, points at src/styles/global.css
+  assets/           # images, optimised at build time by astro:assets
+  components/       # NavBar, StyledButton, ScrollTop, Logo
+  data/projects.ts  # featured project content
+  layouts/main.astro
+  pages/index.astro
+  scripts/          # navbar, reveal, scroll-top
+  styles/global.css # Tailwind entry and theme tokens
 ```
 
-## Adding components
+## Images
+
+Convert sources to WebP before adding them to `src/assets`:
 
 ```sh
-pnpm dlx shadcn@latest add card
+pnpm sharp -i ~/Downloads/photo.png -o src/assets/photo.webp -f webp -q 82 resize 1600
 ```
+
+## Deploy
+
+The build is fully static. Any host works.
+
+| Host | Build command | Output |
+| --- | --- | --- |
+| Cloudflare Pages | `pnpm build` | `dist` |
+| Netlify | `pnpm build` | `dist` |
+| Vercel | `pnpm build` | `dist` |
+| GitHub Pages | `pnpm build` | `dist` |
+
+Node 22 (see `.nvmrc` and the `engines` field). Set `site` in `astro.config.mjs` once the domain is known.
+
+## Content
+
+Project copy lives in `src/data/projects.ts`. Contact details and stats are in the frontmatter of `src/pages/index.astro`.
