@@ -23,16 +23,22 @@ const projects = [
 		name: 'Project 1',
 		image: projectImage1,
 		alt: 'Glass office towers viewed from the street',
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
 	},
 	{
 		name: 'Project 2',
 		image: projectImage2,
 		alt: 'Timber clad building with planted terraces',
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
 	},
 	{
 		name: 'Project 3',
 		image: projectImage3,
 		alt: 'Curved facade of a commercial building',
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
 	},
 ];
 
@@ -197,14 +203,21 @@ const contact = [
 			<div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 				{projects.map((project) => (
 					<article class="flex flex-col gap-3">
-						<Image
-							src={project.image}
-							alt={project.alt}
-							widths={[400, 800]}
-							sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-							class="aspect-[4/5] w-full object-cover"
-						/>
-						<p class="text-xs font-medium tracking-wide uppercase">
+						<div class="group relative overflow-hidden">
+							<Image
+								src={project.image}
+								alt={project.alt}
+								widths={[400, 800]}
+								sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+								class="aspect-[4/5] w-full object-cover"
+							/>
+							<div
+								class="absolute inset-x-0 bottom-0 translate-y-full bg-black/40 p-6 text-sm text-white/90 opacity-0 backdrop-blur-md transition-all duration-400 ease-out blur-sm group-hover:translate-y-0 group-hover:opacity-100 group-hover:blur-[0px]"
+							>
+								<p>{project.description}</p>
+							</div>
+						</div>
+						<p class="font-heading font-medium tracking-wide uppercase text-right">
 							{project.name}
 						</p>
 					</article>
