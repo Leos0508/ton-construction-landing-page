@@ -13,7 +13,7 @@ export default function NavBar() {
       data-navbar
       className="fixed inset-x-0 top-0 z-50 w-full border-b border-border/60 bg-background/90 backdrop-blur transition-transform duration-300 ease-out data-[hidden]:-translate-y-full"
     >
-      <div className="mx-auto flex w-full max-w-[1400px] items-center justify-between px-8 py-4">
+      <div className="mx-auto flex h-20 w-full max-w-[1400px] items-center justify-between px-8">
         <Logo />
         <div>
           {navLists.map((navList) => (
