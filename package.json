@@ -17,6 +17,7 @@
     "@fontsource-variable/dm-sans": "^5.3.0",
     "@fontsource/bebas-neue": "^5.3.0",
     "@fontsource/instrument-serif": "^5.3.0",
+    "@tabler/icons-react": "^3.51.0",
     "@tailwindcss/vite": "^4.3.4",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
