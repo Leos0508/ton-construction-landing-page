@@ -58,4 +58,41 @@ export const featuredProjects: Project[] = [
 		image: westgateImage,
 		alt: "Curved facade of a commercial building",
 	},
+	{
+		id: "PRJ-004",
+		slug: "canal-view-residences",
+		name: "Canal View Residences",
+		category: "Residential",
+		location: "District 4, Ho Chi Minh City",
+		year: 2023,
+		description:
+			"Waterfront apartments arranged around a shared courtyard, with retail at street level.",
+		image: riversideImage,
+		alt: "Glass office towers viewed from the street",
+	},
+	{
+		id: "PRJ-005",
+		slug: "thu-duc-tech-campus",
+		name: "Thu Duc Tech Campus",
+		category: "Commercial",
+		location: "Thu Duc City, Vietnam",
+		year: 2023,
+		description:
+			"Three connected office blocks built around a shaded central spine for a growing software team.",
+		image: meridianImage,
+		alt: "Timber clad building with planted terraces",
+	},
+	{
+		id: "PRJ-006",
+		slug: "binh-chanh-logistics-hub",
+		name: "Binh Chanh Logistics Hub",
+		category: "Industrial",
+		location: "Binh Chanh, Ho Chi Minh City",
+		year: 2022,
+		description:
+			"A warehousing and distribution site sized for heavy vehicle access and round-the-clock operation.",
+		image: westgateImage,
+		alt: "Curved facade of a commercial building",
+	},
 ];
+
