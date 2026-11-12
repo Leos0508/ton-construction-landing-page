@@ -2,9 +2,9 @@ import { Logo } from "./Logo";
 import { StyledButton } from "./StyledButton";
 
 const navLists = [
-  { name: "About", href: "/about" },
-  { name: "Projects", href: "/projects" },
-  { name: "Contact", href: "/contact" },
+  { name: "About", href: "#about" },
+  { name: "Projects", href: "#projects" },
+  { name: "Contact", href: "#contact" },
 ];
 
 export default function NavBar() {
