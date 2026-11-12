@@ -10,6 +10,7 @@ import {
   type Icon,
 } from "@tabler/icons-react";
 import { LogoInverted } from "@/components/Logo";
+import ProjectDialog from "@/components/ProjectDialog.astro";
 import { Image } from "astro:assets";
 import heroImage from "@/assets/hero.webp";
 import aboutImage1 from "@/assets/about-1.webp";
@@ -107,7 +108,7 @@ const contact: ContactBlock[] = [
         through quality, innovation, and a commitment to excellence. We turn
         ambitious ideas into enduring structures.
       </p>
-      <div class="flex flex-wrap items-center justify-center gap-3">
+      <div class="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center sm:justify-center">
         <StyledButton
           href="#projects"
           variant="outline"
@@ -192,8 +193,8 @@ const contact: ContactBlock[] = [
           getting things right.
         </p>
       </div>
-      <div class="flex justify-end" data-reveal data-reveal-delay="200">
-        <StyledButton href="#" variant="outline">
+      <div class="flex justify-center md:justify-end" data-reveal data-reveal-delay="200">
+        <StyledButton href="#" variant="outline" className="w-full justify-center md:w-auto">
           Discover our story
           <IconArrowUpRight size={20} stroke={1.5} aria-hidden="true" />
         </StyledButton>
@@ -204,35 +205,44 @@ const contact: ContactBlock[] = [
   <!-- Featured projects -->
   <section id="projects" class="scroll-mt-20 border-t border-border">
     <div class="mx-auto w-full max-w-[1200px] px-6 py-20">
-      <h2 class="font-heading text-4xl leading-none">Featured projects</h2>
+      <h2 class="font-heading text-5xl leading-none sm:text-6xl">Featured projects</h2>
 
       <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {featuredProjects.map((project) => (
-          <article class="flex flex-col gap-3">
-            <div class="group relative overflow-hidden">
-              <Image
-                src={project.image}
-                alt={project.alt}
-                widths={[400, 800]}
-                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                class="aspect-[4/5] w-full object-cover"
-              />
-              <div class="absolute inset-x-0 bottom-0 translate-y-full bg-black/40 p-6 text-sm text-white/90 opacity-0 backdrop-blur-md transition-all duration-400 ease-out blur-sm group-hover:translate-y-0 group-hover:opacity-100 group-hover:blur-[0px]">
-                <p>{project.description}</p>
+          <article>
+            <button
+              type="button"
+              data-project={project.id}
+              aria-haspopup="dialog"
+              class="group flex w-full cursor-pointer flex-col gap-3 text-left"
+            >
+              <div class="relative overflow-hidden">
+                <Image
+                  src={project.image}
+                  alt={project.alt}
+                  widths={[400, 800]}
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  class="aspect-[4/5] w-full object-cover"
+                />
+                <div class="absolute inset-x-0 bottom-0 translate-y-full bg-black/40 p-6 text-sm text-white/90 opacity-0 backdrop-blur-md transition-all duration-400 ease-out blur-sm group-hover:translate-y-0 group-hover:opacity-100 group-hover:blur-[0px]">
+                  <p>{project.description}</p>
+                </div>
               </div>
-            </div>
-            <p class="font-heading font-medium tracking-wide uppercase text-right">
-              {project.name}
-            </p>
+              <p class="font-heading font-medium tracking-wide uppercase text-right">
+                {project.name}
+              </p>
+            </button>
           </article>
         ))}
       </div>
+
+      {featuredProjects.map((project) => <ProjectDialog project={project} />)}
     </div>
   </section>
 
   <!-- Contact call to action -->
   <section id="contact" class="scroll-mt-20 border-t border-border">
-    <div class="mx-auto flex w-full max-w-[1200px] flex-col items-center gap-8 px-6 py-24 text-center">
+    <div class="mx-auto flex w-full max-w-[1200px] flex-col items-center gap-6 px-6 py-16 text-center md:gap-8 md:py-24">
       <h2 class="font-heading text-4xl leading-none">Let's get in touch</h2>
       <p class="font-heading text-4xl leading-none break-all sm:text-6xl">
         ton_contact@gmail.com
@@ -242,9 +252,9 @@ const contact: ContactBlock[] = [
 
   <!-- Contact details -->
   <section>
-    <div class="mx-auto grid w-full max-w-[1200px] gap-10 px-6 py-16 md:grid-cols-3">
+    <div class="mx-auto grid w-full max-w-[1200px] gap-8 px-6 py-12 md:grid-cols-3 md:gap-10 md:py-16">
       {contact.map((block) => (
-        <div class="flex flex-col gap-4">
+        <div class="flex flex-col gap-3 md:gap-4">
           <h3 class="font-heading text-xl leading-none">{block.title}</h3>
           {block.lines && (
             <div class="flex flex-col gap-1 text-sm text-muted-foreground">
