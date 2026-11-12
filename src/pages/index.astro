@@ -8,6 +8,7 @@ import {
   IconBrandLinkedin,
   IconPhone,
   IconChevronLeft,
+  IconLoader2,
   IconChevronRight,
   type Icon,
 } from "@tabler/icons-react";
@@ -81,15 +82,28 @@ const contact: ContactBlock[] = [
     data-hero
     class="group relative mt-20 flex min-h-[calc(100vh-5rem)] flex-col items-center overflow-hidden px-6 pt-16 pb-16 text-center"
   >
-    <Image
-      src={heroImage}
-      alt=""
-      widths={[640, 960, 1280, 1600, 2400]}
-      sizes="100vw"
-      loading="eager"
-      fetchpriority="high"
-      class="absolute inset-0 h-full w-full object-cover"
-    />
+    <div data-image class="absolute inset-0">
+      <Image
+        src={heroImage}
+        alt=""
+        widths={[640, 960, 1280, 1600, 2400]}
+        sizes="100vw"
+        loading="eager"
+        fetchpriority="high"
+        class="h-full w-full object-cover"
+      />
+      <div
+        data-image-spinner
+        class="absolute inset-0 grid place-items-center bg-neutral-900 transition-opacity duration-300 data-[loaded]:opacity-0"
+      >
+        <IconLoader2
+          className="animate-spin text-white/70"
+          size={28}
+          stroke={1.5}
+          aria-hidden="true"
+        />
+      </div>
+    </div>
     <div
       class="absolute inset-0 bg-neutral-950/45 transition-colors duration-700 ease-out group-hover:bg-neutral-950/25"
       aria-hidden="true"
@@ -163,24 +177,50 @@ const contact: ContactBlock[] = [
       </p>
     </div>
 
-    <Image
-      src={aboutImage1}
-      alt="Three engineers in high-visibility vests reviewing a set of plans on site"
-      widths={[400, 794]}
-      sizes="(min-width: 1024px) 50vw, 100vw"
-      class="aspect-[16/10] w-full object-cover"
-    />
+    <div data-image class="relative">
+      <Image
+        src={aboutImage1}
+        alt="Three engineers in high-visibility vests reviewing a set of plans on site"
+        widths={[400, 794]}
+        sizes="(min-width: 1024px) 50vw, 100vw"
+        class="aspect-[16/10] w-full object-cover"
+      />
+      <div
+        data-image-spinner
+        class="absolute inset-0 grid place-items-center bg-muted transition-opacity duration-300 data-[loaded]:opacity-0"
+      >
+        <IconLoader2
+          className="animate-spin text-muted-foreground"
+          size={24}
+          stroke={1.5}
+          aria-hidden="true"
+        />
+      </div>
+    </div>
   </section>
 
   <!-- About, image left / text right -->
   <section class="mx-auto grid w-full max-w-[1200px] items-stretch gap-10 px-6 pb-20 lg:grid-cols-2 lg:gap-16">
-    <Image
-      src={aboutImage2}
-      alt="Construction team in hard hats inspecting the concrete frame of a project"
-      widths={[470, 939]}
-      sizes="(min-width: 1024px) 50vw, 100vw"
-      class="aspect-[16/10] w-full object-cover"
-    />
+    <div data-image class="relative">
+      <Image
+        src={aboutImage2}
+        alt="Construction team in hard hats inspecting the concrete frame of a project"
+        widths={[470, 939]}
+        sizes="(min-width: 1024px) 50vw, 100vw"
+        class="aspect-[16/10] w-full object-cover"
+      />
+      <div
+        data-image-spinner
+        class="absolute inset-0 grid place-items-center bg-muted transition-opacity duration-300 data-[loaded]:opacity-0"
+      >
+        <IconLoader2
+          className="animate-spin text-muted-foreground"
+          size={24}
+          stroke={1.5}
+          aria-hidden="true"
+        />
+      </div>
+    </div>
 
     <div class="flex flex-col justify-between gap-8">
       <div class="flex flex-col gap-6">
@@ -246,7 +286,7 @@ const contact: ContactBlock[] = [
               aria-haspopup="dialog"
               class="group flex w-full cursor-pointer flex-col gap-3 text-left"
             >
-              <div class="relative overflow-hidden">
+              <div data-image class="relative overflow-hidden">
                 <Image
                   src={project.image}
                   alt={project.alt}
@@ -254,6 +294,17 @@ const contact: ContactBlock[] = [
                   sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                   class="aspect-[4/5] w-full object-cover"
                 />
+                <div
+                  data-image-spinner
+                  class="absolute inset-0 grid place-items-center bg-muted transition-opacity duration-300 data-[loaded]:opacity-0"
+                >
+                  <IconLoader2
+                    className="animate-spin text-muted-foreground"
+                    size={24}
+                    stroke={1.5}
+                    aria-hidden="true"
+                  />
+                </div>
                 <div class="absolute inset-x-0 bottom-0 translate-y-full bg-black/40 p-6 text-sm text-white/90 opacity-0 backdrop-blur-md transition-all duration-400 ease-out blur-sm group-hover:translate-y-0 group-hover:opacity-100 group-hover:blur-[0px]">
                   <p>{project.description}</p>
                 </div>
