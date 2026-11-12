@@ -131,14 +131,4 @@
   html {
     @apply font-sans;
     }
-  /* Hidden only when the layout confirmed JavaScript is running. */
-  .js [data-reveal] {
-    opacity: 0;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .js [data-reveal] {
-    opacity: 1;
-  }
 }
