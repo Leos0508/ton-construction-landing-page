@@ -1,32 +1,199 @@
 ---
 import Layout from '@/layouts/main.astro';
 import { Button } from '@/components/ui/button';
+import { LogoInverted } from '@/components/Logo';
+
+const stats = [
+	{ value: '18+', label: 'Years of Experience' },
+	{ value: '120+', label: 'Projects Completed' },
+	{ value: '85+', label: 'Industry Professionals' },
+	{ value: '12', label: 'Provinces Served' },
+];
+
+const projects = ['Project 1', 'Project 2', 'Project 3'];
+
+const contact = [
+	{
+		title: 'Office Address',
+		lines: ['128 Nguyen Van Linh', 'Boulevard, Tan Phong Ward', 'District 7, Ho Chi Minh City, Vietnam'],
+		map: true,
+	},
+	{
+		title: 'Phone',
+		lines: ['+84 28 7300 8520'],
+		map: false,
+	},
+	{
+		title: 'Social Medias',
+		lines: ['Facebook', 'Instagram', 'LinkedIn'],
+		map: false,
+	},
+];
 ---
 
 <Layout
-	title="Landing page"
+	title="TON Construction Group"
 	description="Placeholder landing page built with Astro, Tailwind CSS, and shadcn/ui."
 >
-	<main
-		class="flex min-h-screen flex-col items-center justify-center gap-6 px-6 text-center"
+	<!-- Hero -->
+	<section
+		class="relative flex min-h-[80vh] flex-col items-center justify-between gap-20 bg-muted px-6 pt-28 pb-16 text-center"
 	>
-		<p
-			class="font-display text-sm tracking-[0.25em] text-muted-foreground uppercase"
-		>
-			Placeholder
-		</p>
-		<h1
-			class="font-heading max-w-2xl text-5xl leading-[1.05] font-normal tracking-tight text-balance sm:text-7xl"
-		>
-			Your headline goes here
+		<h1 class="font-heading max-w-3xl text-4xl leading-none tracking-tight sm:text-6xl">
+			We build what last
 		</h1>
-		<p class="max-w-md text-balance text-muted-foreground">
-			Astro, Tailwind CSS, and shadcn/ui are wired up. Replace this copy with
-			the real pitch.
-		</p>
-		<div class="flex flex-wrap items-center justify-center gap-3">
-			<Button size="lg">Get started</Button>
-			<Button variant="outline" size="lg">Learn more</Button>
+
+		<div class="flex max-w-xl flex-col items-center gap-6">
+			<p class="text-sm text-muted-foreground">
+				From concept to completion, we deliver reliable construction solutions
+				through quality, innovation, and a commitment to excellence. We turn
+				ambitious ideas into enduring structures.
+			</p>
+			<div class="flex flex-wrap items-center justify-center gap-3">
+				<Button variant="outline">Explore our projects</Button>
+				<Button>Get in touch</Button>
+			</div>
 		</div>
-	</main>
+	</section>
+
+	<!-- Stats -->
+	<section class="border-b border-border">
+		<div
+			class="mx-auto grid w-full max-w-[1200px] grid-cols-2 gap-y-8 px-6 py-10 sm:grid-cols-4"
+		>
+			{stats.map((stat) => (
+				<div class="px-2 sm:px-4">
+					<p class="font-heading text-3xl leading-none">{stat.value}</p>
+					<p class="mt-2 text-xs text-muted-foreground">{stat.label}</p>
+				</div>
+			))}
+		</div>
+	</section>
+
+	<!-- About, text left / image right -->
+	<section
+		class="mx-auto grid w-full max-w-[1200px] items-start gap-10 px-6 py-20 lg:grid-cols-2 lg:gap-16"
+	>
+		<div class="flex flex-col gap-6">
+			<h2 class="font-heading text-3xl leading-none">About us</h2>
+			<p class="text-lg">Built on Experience. Driven by Excellence.</p>
+			<p class="text-sm text-muted-foreground">
+				At TON, we believe every great structure begins with a strong
+				foundation, not just in materials, but in trust, expertise, and
+				collaboration.
+			</p>
+			<p class="text-sm text-muted-foreground">
+				We are a construction and development company specializing in
+				residential, commercial, and industrial projects.
+			</p>
+			<hr class="mt-4 border-border" />
+		</div>
+
+		<!-- image placeholder -->
+		<div class="aspect-[16/10] w-full bg-muted" aria-hidden="true"></div>
+	</section>
+
+	<!-- About, image left / text right -->
+	<section
+		class="mx-auto grid w-full max-w-[1200px] items-stretch gap-10 px-6 pb-20 lg:grid-cols-2 lg:gap-16"
+	>
+		<!-- image placeholder -->
+		<div class="aspect-[16/10] w-full bg-muted" aria-hidden="true"></div>
+
+		<div class="flex flex-col justify-between gap-8">
+			<div class="flex flex-col gap-6">
+				<p class="text-sm text-muted-foreground">
+					Our team combines technical expertise with practical experience to
+					deliver projects that meet the highest standards of quality, safety,
+					and performance.
+				</p>
+				<p class="text-sm text-muted-foreground">
+					From the initial planning stages to the final handover, we approach
+					every project with precision, transparency, and a commitment to
+					getting things right.
+				</p>
+			</div>
+			<div class="flex justify-end">
+				<Button variant="outline">Discover our story</Button>
+			</div>
+		</div>
+	</section>
+
+	<!-- Featured projects -->
+	<section class="border-t border-border">
+		<div class="mx-auto w-full max-w-[1200px] px-6 py-20">
+			<h2 class="font-heading text-3xl leading-none">Featured projects</h2>
+
+			<div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+				{projects.map((project) => (
+					<article class="flex flex-col gap-3">
+						<div class="aspect-[4/5] w-full bg-muted" aria-hidden="true"></div>
+						<p class="text-xs font-medium tracking-wide uppercase">
+							{project}
+						</p>
+					</article>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Contact call to action -->
+	<section class="border-t border-border">
+		<div class="mx-auto flex w-full max-w-[1200px] flex-col items-center gap-8 px-6 py-24 text-center">
+			<h2 class="font-heading text-3xl leading-none">Let's get in touch</h2>
+			<p class="font-heading text-4xl leading-none break-all sm:text-6xl">
+				ton_contact@gmail.com
+			</p>
+		</div>
+	</section>
+
+	<!-- Contact details -->
+	<section class="border-t border-border">
+		<div
+			class="mx-auto grid w-full max-w-[1200px] gap-10 px-6 py-16 md:grid-cols-3"
+		>
+			{contact.map((block) => (
+				<div class="flex flex-col gap-4">
+					<h3 class="font-heading text-xl leading-none">{block.title}</h3>
+					<div class="flex flex-col gap-1 text-sm text-muted-foreground">
+						{block.lines.map((line) => <p>{line}</p>)}
+					</div>
+					{block.map && (
+						<div class="mt-2 aspect-[4/3] w-full bg-muted" aria-hidden="true" />
+					)}
+				</div>
+			))}
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="bg-neutral-950 text-neutral-50">
+		<div
+			class="mx-auto flex w-full max-w-[1200px] flex-col gap-12 px-6 py-16 md:flex-row md:items-start md:justify-between"
+		>
+			<LogoInverted />
+
+			<div class="flex flex-col gap-3 md:items-end">
+				<p class="text-xs tracking-widest text-neutral-400 uppercase">
+					Quick links
+				</p>
+				<a href="#" class="text-sm hover:underline">Home</a>
+				<a href="#" class="text-sm hover:underline">About Us</a>
+				<a href="#" class="text-sm hover:underline">Projects</a>
+			</div>
+		</div>
+
+		<div class="border-t border-white/10">
+			<div
+				class="mx-auto flex w-full max-w-[1200px] flex-col items-center gap-4 px-6 py-6 text-xs text-neutral-400 md:flex-row md:justify-between"
+			>
+				<p>© 2026 NORTHSTONE CONSTRUCTION & Development, All Rights Reserved</p>
+				<div class="flex gap-4">
+					<a href="#" class="hover:underline">Privacy Policy</a>
+					<a href="#" class="hover:underline">Terms & Conditions</a>
+					<a href="#" class="hover:underline">Cookie Policy</a>
+				</div>
+			</div>
+		</div>
+	</footer>
 </Layout>
